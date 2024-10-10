@@ -33,7 +33,7 @@ const UserSchema = new Schema<IUser>({
   profile: {
     bio:{
       type: String,
-      required: true
+      required: false
     },
     socialLinks: {
       type: [String],
