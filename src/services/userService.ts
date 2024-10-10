@@ -1,10 +1,12 @@
 import UserModel from "../models/userModel" 
+import { userDTO } from "../dto/userDto"
 
 
 
-const createUser = async (user: string) => {
-    
+const createUser = async (user: userDTO) => {
+
 }
+
 
 
 
