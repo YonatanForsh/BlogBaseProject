@@ -5,6 +5,7 @@ import userService from "../services/userService"
 
 export const createUser = async (req: Request, res: Response) => {
     try {
+        console.log(req.body);
         const resolt = await userService.createUser(req.body)
         res.status(201).json({
             msg: "user created",

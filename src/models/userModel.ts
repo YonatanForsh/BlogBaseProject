@@ -4,11 +4,11 @@ import validator from "validator";
 export interface IUser extends Document {
   username: string;
   email: string;
-  profile: {
+  profile?: {
     bio?: string;
     socialLinks?: string[];
   };
-  posts: Types.ObjectId[];
+  posts?: Types.ObjectId[];
 }
 
 const UserSchema = new Schema<IUser>({
@@ -31,18 +31,21 @@ const UserSchema = new Schema<IUser>({
     }
   },
   profile: {
-    bio:{
-      type: String,
-      required: false
-    },
-    socialLinks: {
-      type: [String],
-      required: true
-    }
+    type: {
+      bio: {
+        type: String,
+        required: false
+      },
+      socialLinks: {
+        type: [String],
+        required: true
+      }
+    },   
   },
   posts: {
     type: [Schema.Types.ObjectId],
-    required: true
+    ref: "post",
+    default: []
   }
 })
 
